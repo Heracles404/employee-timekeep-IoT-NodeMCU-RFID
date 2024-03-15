@@ -22,6 +22,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px 40px;
     border-radius: 5px;
+    width: 30%;
 }
 
 .container h1{
@@ -36,7 +37,7 @@ body {
 
 .btn{
     cursor: pointer;
-    display: inline-block;
+    display: block;
     width: 100%;
     background: lightblue;
     padding: 15px;
@@ -44,7 +45,9 @@ body {
     font-size: 16px;
     border: 0;
     border-radius: 5px;
+    margin: 0 auto; /* Center horizontally */
 }
+
 
 .btn:focus{
     outline: 0;
@@ -65,7 +68,7 @@ body {
 .form-control{
     position: relative;
     margin: 20px 0 40px;
-    width: 300px;
+    width: 100%;
 }
 
 .form-control input{
@@ -125,6 +128,7 @@ input[type="file"] {
 }
 
 .custom-file-input {
+    text-align: center;
     cursor: pointer;
     padding: 10px 15px;
     background-color: #4581b3;
@@ -134,7 +138,7 @@ input[type="file"] {
     font-size: 16px;
     margin: 0 auto; /* Updated margin property */
     display: block; /* Ensures block-level display for centering */
-    width: fit-content; /* Adjusts width based on content */
+    width: 25%; /* Adjusts width based on content */
 }
 
 
