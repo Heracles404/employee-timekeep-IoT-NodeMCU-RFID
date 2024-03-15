@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkUID = "SELECT * FROM accounts WHERE UID='$UID'";
     $result = $con->query($checkUID);
     if ($result->num_rows > 0) {
-        echo "Error: UID already exists.";
+        echo "<script>alert('Error: UID already exists.');</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
     } else {
         // Insert data into database
         $sql = "INSERT INTO accounts (UID, f_name, l_name, email, picture) VALUES ('$UID', '$firstname', '$lastname', '$email', '$imgContent')";
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Alert message
             echo "<script>alert('Successfully registered');</script>";
             // Redirect to index.php
-            echo "<script>window.location.href = 'index.php';</script>";
+            echo "<script>window.location.href = 'send-email/send-email.php?UID=$UID&firstname=$firstname&lastname=$lastname&email=$email';</script>";
             exit();
         } else {
             // echo "<script>alert('Error: " . $sql . "\\n" . $con->error . "');</script>";
