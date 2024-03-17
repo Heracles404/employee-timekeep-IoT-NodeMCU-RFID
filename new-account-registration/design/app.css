@@ -23,6 +23,7 @@ body {
     padding: 20px 40px;
     border-radius: 5px;
     width: 30%;
+    min-width: min-content;
 }
 
 .container h1{
@@ -139,6 +140,7 @@ input[type="file"] {
     margin: 0 auto; /* Updated margin property */
     display: block; /* Ensures block-level display for centering */
     width: 25%; /* Adjusts width based on content */
+    min-width: 150px;
 }
 
 
