@@ -18,6 +18,8 @@ MFRC522::MIFARE_Key key;
 
 String tag;
 
+#define buzzer  D0
+
 void setup() {
   Serial.begin(9600);
   
@@ -37,6 +39,9 @@ void setup() {
   // RFID Components
   SPI.begin();
   rfid.PCD_Init();
+
+  pinMode(buzzer, OUTPUT);
+  tapped();
 }
 
 void loop() {
@@ -59,6 +64,8 @@ void getUID(){
     tag = "";
     rfid.PICC_HaltA();
     rfid.PCD_StopCrypto1();
+
+    tapped();
   }  
 }
 
@@ -81,4 +88,10 @@ void temporarySave(String tag) {
   }
 
   return;
+}
+
+void tapped(){
+  digitalWrite (buzzer, HIGH);
+  delay (200);
+  digitalWrite (buzzer, LOW);
 }
