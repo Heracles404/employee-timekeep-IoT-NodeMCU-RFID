@@ -33,12 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($con->query($sql) === TRUE) {
             // Alert message
             echo "<script>alert('Successfully registered');</script>";
-            // Redirect to index.php
-            echo "<script>window.location.href = 'send-email/send-email.php?UID=$UID&firstname=$firstname&lastname=$lastname&email=$email';</script>";
+            // Redirect to loader.php with query parameters
+            header("Location: send-email/loader/loader.php?UID=$UID&firstname=$firstname&lastname=$lastname&email=$email");
             exit();
+
         } else {
             // echo "<script>alert('Error: " . $sql . "\\n" . $con->error . "');</script>";
-            
+
             echo "<script>alert('Error: " . $sql . "\\n" . $con->error . "');</script>";
             echo "<script>window.location.href = 'index.php';</script>";
             exit();

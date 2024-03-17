@@ -41,11 +41,13 @@ try {
 
 
     $mail->send();
-    header("Location: ../index.php");
+    // Redirect after sending email
+//     header("Location: ../index.php");
     exit();
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    header("Location: ../index.php");
+//     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "<script>alert('Error!')</script>";
+//     header("Location: ../index.php");
     exit();
 }
 ?>
