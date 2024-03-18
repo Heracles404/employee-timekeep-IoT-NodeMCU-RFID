@@ -10,7 +10,7 @@
 </head>
 <body style="margin: 50px;">
     <h1> Registered Accounts </h1>
-    <a class="btn btn-primary" href="/IoT-NodeMCU-RFID/register.php" role="button">Register New Client</a>
+    <a class="btn btn-primary" href="/employee-timekeep-IoT-NodeMCU-RFID/new-account-registration/" role="button">Register New Client</a>
     <br><br>
 
 <!-- Search form -->
@@ -38,6 +38,7 @@ document.getElementById("searchInput").setAttribute("autocomplete", "off");
                 <th>UID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Email</th>
                 <th>Created at</th>
                 <th>Action</th>
             </tr>
@@ -48,7 +49,7 @@ document.getElementById("searchInput").setAttribute("autocomplete", "off");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "IoT-NodeMCU-RFID";
+$dbname = "nodemcu_rfid_iot";
 
 // Connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -79,10 +80,11 @@ while ($row = $result->fetch_assoc()) {
             <td>{$row['UID']}</td>
             <td>{$row['f_name']}</td>
             <td>{$row['l_name']}</td>
+            <td>{$row['email']}</td>
             <td>{$row['created_at']}</td>
             <td>
                 <a class='btn btn-primary btn-sm' href='/IoT-NodeMCU-RFID/update.php?id={$row['UID']}'>Update</a>
-                <a class='btn btn-danger btn-sm' href='/IoT-NodeMCU-RFID/delete-account.php?id={$row['UID']}'>Delete</a>
+                <a class='btn btn-danger btn-sm' href='/employee-timekeep-IoT-NodeMCU-RFID/account-table/delete-account.php?id={$row['UID']}'>Delete</a>
             </td>
           </tr>";
 }

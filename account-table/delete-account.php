@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "IoT-NodeMCU-RFID";
+    $dbname = "nodemcu_rfid_iot";
 
     // Connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,6 +27,6 @@ if (isset($_GET["id"])) {
     $conn->close();
 }
 
-header("location: /IoT-NodeMCU-RFID/account-table.php");
+header("location: /employee-timekeep-IoT-NodeMCU-RFID/account-table/");
 exit;
 ?>
