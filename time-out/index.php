@@ -5,13 +5,17 @@
     <title>Time Out</title>
     <!--style-->
     <link rel="stylesheet" href="design/app.css">
+    <link rel="stylesheet" href="clock/clock.css">
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="temp-display.js"></script>
+    <script src="clock/clock.js"></script>
 </head>
 
 <body>
 <div class="container">
+    <p id="clock"></p>
+
     <h1>Time Out</h1>
 
     <form id="registerForm" action="time-out.php" method="get" enctype="multipart/form-data">

@@ -17,6 +17,21 @@ if (isset($_GET['UID'])) {
     } else {
         echo "Error: " . mysqli_error($con);
     }
+
+    sleep(2);
+
+    $sql = "UPDATE temp_out SET RFID_UID = ' ' WHERE idx = 1";
+
+    if (mysqli_query($con, $sql)) {
+        $result = mysqli_query($con, "SELECT * FROM temp_out WHERE idx = 1");
+        $row = mysqli_fetch_assoc($result);
+
+        // Echo the updated record
+        echo $row['RFID_UID'];
+    } else {
+        echo "Error: " . mysqli_error($con);
+    }
+
 } else {
     echo "UID parameter not provided";
 }
