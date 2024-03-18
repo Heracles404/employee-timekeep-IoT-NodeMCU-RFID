@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-control">
-            <input type="text" id="UID" name="UID" onchange="checkUID()" readonly>
+            <input type="text" id="UID" name="UID" onchange="" readonly>
             <label for="UID">UID</label>
         </div>
 
@@ -41,6 +41,5 @@
 
 
 <script src="design/design.js"></script>
-<script src="record/authenticate-uid.js"></script>
 </body>
 </html>
