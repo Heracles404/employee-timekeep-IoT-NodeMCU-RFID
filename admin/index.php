@@ -7,7 +7,7 @@
 </head>
 <body style="margin: 50px;">
     <h1> Registered Accounts </h1>
-    <a class="btn btn-primary" href="/employee-timekeep-IoT-NodeMCU-RFID/admin/cnew-account-registration/" role="button">Register New Client</a>
+    <a class="btn btn-primary" href="/employee-timekeep-IoT-NodeMCU-RFID/admin/new-account-registration/" role="button">Register New Client</a>
     <br><br>
 
 <!-- Search form -->
@@ -42,7 +42,7 @@ document.getElementById("searchInput").setAttribute("autocomplete", "off");
         </thead>
 
         <tbody>
-        <?php
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
