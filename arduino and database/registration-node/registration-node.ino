@@ -73,7 +73,7 @@ void temporarySave(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/new-account-registration/temp-data.php?ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/admin/new-account-registration/temp-data.php?ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
