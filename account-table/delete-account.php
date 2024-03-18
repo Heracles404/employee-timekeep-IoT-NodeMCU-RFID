@@ -1,0 +1,32 @@
+<?php
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "IoT-NodeMCU-RFID";
+
+    // Connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind the SQL statement
+    $sql = "DELETE FROM accounts WHERE UID=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $id);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
+
+header("location: /IoT-NodeMCU-RFID/account-table.php");
+exit;
+?>
