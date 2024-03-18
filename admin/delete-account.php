@@ -27,6 +27,6 @@ if (isset($_GET["id"])) {
     $conn->close();
 }
 
-header("location: /employee-timekeep-IoT-NodeMCU-RFID/account-table/");
+header("location: /employee-timekeep-IoT-NodeMCU-RFID/admin/index.php");
 exit;
 ?>

@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Table</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
 </head>
 <body style="margin: 50px;">
     <h1> Registered Accounts </h1>
-    <a class="btn btn-primary" href="/employee-timekeep-IoT-NodeMCU-RFID/new-account-registration/" role="button">Register New Client</a>
+    <a class="btn btn-primary" href="/employee-timekeep-IoT-NodeMCU-RFID/admin/cnew-account-registration/" role="button">Register New Client</a>
     <br><br>
 
 <!-- Search form -->
@@ -83,8 +80,8 @@ while ($row = $result->fetch_assoc()) {
             <td>{$row['email']}</td>
             <td>{$row['created_at']}</td>
             <td>
-                <a class='btn btn-primary btn-sm' href='/IoT-NodeMCU-RFID/update.php?id={$row['UID']}'>Update</a>
-                <a class='btn btn-danger btn-sm' href='/employee-timekeep-IoT-NodeMCU-RFID/account-table/delete-account.php?id={$row['UID']}'>Delete</a>
+                <a href='/IoT-NodeMCU-RFID/admin/update.php?id={$row['UID']}'>Update</a>
+                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/account-table/delete-account.php?id={$row['UID']}'>Delete</a>
             </td>
           </tr>";
 }
