@@ -23,7 +23,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px 40px;
     border-radius: 5px;
-    width: 30%;
+    width: 20%;
     min-width: min-content;
 }
 
@@ -37,128 +37,13 @@ body {
     color: lightblue;
 }
 
-.btn{
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    background: lightblue;
-    padding: 15px;
-    font-family: inherit;
-    font-size: 16px;
-    border: 0;
-    border-radius: 5px;
-    margin: 0 auto; /* Center horizontally */
-}
-
-
-.btn:focus{
-    outline: 0;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-}
-
-.btn:active{
-    transform: scale(.98);
-}
-
-.text{
-    margin-top: 30px;
-}
-
-.form-control{
-    position: relative;
-    margin: 20px 0 40px;
-    width: 100%;
-}
-
-.form-control input{
-    background-color: transparent;
-    border: 0;
-    border-bottom: 2px #fff solid;
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    color: #fff;
-    text-align: center;
-}
-
-.form-control input:focus,
-.form-control input:valid{
-    outline: 0;
-    border-bottom-color: lightblue;
-}
-
-.form-control label{
-    position: absolute;
-    top: 15px;
-    left: 0;
-}
-
-
-
-/* Under here works after the script.js added span element / attribute */
-.form-control label span{
-    display: inline-block;
-    font-size: 18px;
-    min-width: 5px;
-    /*Bouncy effect*/
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.form-control input:focus + label span,
-.form-control input:valid + label span{
-    color: lightblue;
-    transform: translateY(-30px);
-}
-
-
-/*Under here the image styles*/
-/* Hide the default file input button */
-input[type="file"] {
-    display: none;
-}
-
-/* Style the custom file input button */
-.file-input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Center the button horizontally */
-    margin-bottom: 20px; /* Add some space below the button */
-}
-
-.custom-file-input {
-    text-align: center;
-    cursor: pointer;
-    padding: 10px 15px;
-    background-color: #4581b3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    margin: 0 auto; /* Updated margin property */
-    display: block; /* Ensures block-level display for centering */
-    width: 25%; /* Adjusts width based on content */
-    min-width: 150px;
-}
-
-
-.custom-file-input:hover {
-    background-color: skyblue;
-    color: black;
-}
-
-
 
 #imageBox {
     width: 280px;
     height: 280px;
     border: 1px solid #ccc;
     border-radius: 50%; /* Use 50% to create a circle */
-    margin: -5px auto 20px; /* Center the image box horizontally */
+    margin: auto; /* Center the image box horizontally */
     overflow: hidden; /* Ensure the image is clipped to the rounded border */
     display: flex;
     justify-content: center;
@@ -167,5 +52,4 @@ input[type="file"] {
 
 #uploadedImage {
     max-width: 300px;
-    max-height: 300px;
 }

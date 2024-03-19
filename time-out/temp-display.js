@@ -8,15 +8,9 @@ function ajaxcall(){
         type: 'POST',
         url: 'temp-fetch.php',
         success: function(data) {
-            $('#UID').val(data); // Set the value of the input field to the received UID
+            var jsonData = JSON.parse(data);
+            var picture = jsonData[0].picture; // Assuming only one row is returned
+            $('#uploadedImage').attr('src', 'data:image/jpeg;base64,' + picture);
         }
     });
-}
-
-function uploadImage() {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        $('#uploadedImage').attr('src', e.target.result);
-    };
-    reader.readAsDataURL(event.target.files[0]);
 }

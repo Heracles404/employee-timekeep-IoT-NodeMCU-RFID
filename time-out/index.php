@@ -14,9 +14,7 @@
 
 <body>
 <div class="container">
-    <p id="clock"></p>
-
-    <h1>Time Out</h1>
+    <h2 id="clock"></h2>
 
     <form id="registerForm" action="time-out.php" method="get" enctype="multipart/form-data">
         <div>
@@ -25,19 +23,10 @@
             </div>
             <br>
         </div>
-
-        <div class="form-control">
-            <input type="text" id="UID" name="UID" readonly>
-            <label for="UID">UID</label>
-        </div>
-
-        <div class="form-control">
-            <input type="text" id="name" name="lastname" readonly>
-            <label for="lastname">Name</label>
-        </div>
     </form>
+
+    <h1>Time Out</h1>
 </div>
-<br>
 
 <script src="design/design.js"></script>
 </body>

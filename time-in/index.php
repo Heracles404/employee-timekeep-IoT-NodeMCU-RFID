@@ -14,31 +14,19 @@
 
 <body>
 <div class="container">
-    <p id="clock"></p>
+    <h2 id="clock"></h2>
 
-    <h1>Time In</h1>
-
-    <form id="registerForm" method="get" enctype="multipart/form-data">
+    <form id="registerForm" action="time-in.php" method="get" enctype="multipart/form-data">
         <div>
             <div class="form-control" id="imageBox">
                 <img id="uploadedImage" src="design/img.jpg">
             </div>
             <br>
         </div>
-
-        <div class="form-control">
-            <input type="text" id="UID" name="UID" onchange="" readonly>
-            <label for="UID">UID</label>
-        </div>
-
-        <div class="form-control">
-            <input type="text" id="name" name="name" readonly>
-            <label for="lastname">Name</label>
-        </div>
     </form>
-</div>
-<br>
 
+    <h1>Time In</h1>
+</div>
 
 <script src="design/design.js"></script>
 </body>

@@ -14,11 +14,16 @@ if (isset($_GET['UID'])) {
 
         // Echo the updated record
         echo $row['RFID_UID'];
+
     } else {
         echo "Error: " . mysqli_error($con);
     }
+
+    exit;
+
 } else {
     echo "UID parameter not provided";
 }
+
 mysqli_close($con);
 ?>
