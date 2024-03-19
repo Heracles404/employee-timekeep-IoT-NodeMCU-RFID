@@ -26,7 +26,7 @@ while ($row = $result->fetch_assoc()) {
             <td>{$row['email']}</td>
             <td>{$row['created_at']}</td>
             <td>
-            <a href='/IoT-NodeMCU-RFID/admin/update.php?id={$row['UID']}'>
+            <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/update-account/?id={$row['UID']}'>
             <button>Update</button>
             </a>
             <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/delete-account/delete-account.php?id={$row['UID']}'>
