@@ -1,31 +1,36 @@
-/*google font API*/
+/* Google font API */
 @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
 
-/* Style for the body */
+/* Body style */
 body {
     background-color: steelblue;
-    font-family: Arial, sans-serif;
+    font-family: 'Muli', Arial, sans-serif; /* Use Muli font as default */
     margin: 0;
     padding: 0;
 }
 
-/* Style for the h1 */
+a{
+    text-decoration: none;
+}
+
+/* Heading style */
 h1 {
     text-align: center;
     color: #fff;
+    
 }
 
-/* Style for the button container */
+/* Button container style */
 .button-container {
     text-align: center;
     margin-bottom: 20px; /* Adjust as needed */
 }
 
-/* Style for the button */
+/* Button style */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #355c7c;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -33,10 +38,10 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #0a3e6980;
 }
 
-/* Style for the form */
+/* Form control style */
 .form-control {
     width: 300px;
     padding: 10px;
@@ -49,28 +54,42 @@ h1 {
     justify-content: center;
 }
 
-/* Style for the table */
+/* Table style */
 .table {
-    width: 100%;
+    width: 84%;
+    text-align: center;
+    margin:auto;
     border-collapse: collapse;
+    background-color: #fff; /* Set background color to white */
+    margin-bottom: 20px; /* Add mAHAHargin-bottom for spacing */
 }
 
-.table th, .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
+/* Table header style */
 .table th {
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #355c7c; /* Change header background color */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
+/* Table cell style */
+.table td {
+    border: 1px solid #ddd;
+    color: #355c7c; /* Set text color to white */
+    padding: 10px;
+}
+
+/* Alternating row background color */
 .table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* Style for the form */
+/* Hover effect on table rows */
+.table tbody tr:hover {
+    background-color: #e9ecef; /* Lighter background color on hover */
+}
+
+/* Space under the form */
 form {
-    margin-bottom: 20px; /* Add margin-bottom for spacing */
+    margin-bottom: 20px; /* Add margin bottom to create space */
 }

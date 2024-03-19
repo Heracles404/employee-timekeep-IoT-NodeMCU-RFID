@@ -19,15 +19,20 @@ if (!$result) {
 
 // Read data
 while ($row = $result->fetch_assoc()) {
-    echo "<tr>
+    echo "<tr>  
             <td>{$row['UID']}</td>
             <td>{$row['f_name']}</td>
             <td>{$row['l_name']}</td>   
             <td>{$row['email']}</td>
             <td>{$row['created_at']}</td>
             <td>
-                <button href='/IoT-NodeMCU-RFID/admin/update.php?id={$row['UID']}'>Update</a>
-                <button href='/employee-timekeep-IoT-NodeMCU-RFID/admin/delete-account/delete-account.php?id={$row['UID']}'>Delete</a>
+            <a href='/IoT-NodeMCU-RFID/admin/update.php?id={$row['UID']}'>
+            <button>Update</button>
+            </a>
+            <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/delete-account/delete-account.php?id={$row['UID']}'>
+            <button>Delete</button>
+            </a>
+        
             </td>
           </tr>";
 }
