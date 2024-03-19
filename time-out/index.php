@@ -16,16 +16,23 @@
 <div class="container">
     <h2 id="clock"></h2>
 
-    <form id="registerForm" action="time-out.php" method="get" enctype="multipart/form-data">
+    <form id="registerForm" action="time-in.php" method="get" enctype="multipart/form-data">
         <div>
             <div class="form-control" id="imageBox">
                 <img id="uploadedImage" src="design/img.jpg">
             </div>
             <br>
-        </div>
+
+            <h1>Time Out</h1>
+
+            <div class="form-control">
+                <input type="text" id="uid" name="uid" readonly>
+            </div>
+            <div class="form-control">
+                <input type="text" id="name" name="name" readonly>
+            </div>
     </form>
 
-    <h1>Time Out</h1>
 </div>
 
 <script src="design/design.js"></script>

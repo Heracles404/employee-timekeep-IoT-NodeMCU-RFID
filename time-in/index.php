@@ -1,3 +1,13 @@
+<?php
+include_once('connects.php');
+
+// Clear 'temporary_data' table
+$query_clear = "UPDATE temp_in SET RFID_UID = ' ' WHERE idx = 1";
+$con->query($query_clear);
+
+$con->close();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +32,17 @@
                 <img id="uploadedImage" src="design/img.jpg">
             </div>
             <br>
-        </div>
+
+            <h1>Time In</h1>
+
+            <div class="form-control">
+                <input type="text" id="uid" name="uid" readonly>
+            </div>
+            <div class="form-control">
+                <input type="text" id="name" name="name" readonly>
+            </div>
     </form>
 
-    <h1>Time In</h1>
 </div>
 
 <script src="design/design.js"></script>
