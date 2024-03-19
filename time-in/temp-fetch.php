@@ -16,6 +16,7 @@ if (!$result) {
 
         if (!$userResult) {
             echo "Error fetching user data: " . mysqli_error($con);
+
         } else {
             $userData = mysqli_fetch_assoc($userResult);
             if ($userData) {
