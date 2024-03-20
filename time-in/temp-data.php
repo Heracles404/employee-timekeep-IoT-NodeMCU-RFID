@@ -19,6 +19,10 @@ if (isset($_GET['UID'])) {
         echo "Error: " . mysqli_error($con);
     }
 
+    sleep(3);
+    $sql = "UPDATE temp_in SET RFID_UID = '' WHERE idx = 1";
+    mysqli_query($con, $sql);
+
     exit;
 
 } else {

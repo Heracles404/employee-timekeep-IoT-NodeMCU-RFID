@@ -55,6 +55,8 @@ void getUID(){
     return;
 
   if (rfid.PICC_ReadCardSerial()) {
+    tapped();
+
     for (byte i = 0; i < 4; i++) {
       tag += rfid.uid.uidByte[i];
     }
@@ -65,8 +67,6 @@ void getUID(){
     tag = "";
     rfid.PICC_HaltA();
     rfid.PCD_StopCrypto1();
-
-    tapped();
   }  
 }
 
