@@ -58,8 +58,9 @@ void getUID(){
     for (byte i = 0; i < 4; i++) {
       tag += rfid.uid.uidByte[i];
     }
-    Serial.println(tag);
+    
     temporarySave(tag);
+    timeIn(tag);
 
     tag = "";
     rfid.PICC_HaltA();
@@ -74,6 +75,27 @@ void temporarySave(String tag) {
     HTTPClient http;
     WiFiClient wifi;
     http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/time-in/temp-data.php?ipsrc=1&UID=" + tag); 
+    http.addHeader("Content-Type", "text/plain");
+    int httpCode = http.GET();
+    if (httpCode > 0) {
+      String response = http.getString();
+      Serial.println(response);
+    } else {
+      Serial.println("HTTP Error: " + http.errorToString(httpCode));
+    }
+    http.end();
+  } else {
+    Serial.println("Error in WiFi connection");
+  }
+
+  return;
+}
+
+void timeIn(String tag) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    WiFiClient wifi;
+    http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/time-in/clock-in.php?ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
