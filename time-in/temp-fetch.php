@@ -11,7 +11,7 @@ if (!$result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $uid = $row['RFID_UID'];
         // Fetch user data
-        $query = "SELECT picture FROM accounts WHERE UID = '$uid'";
+        $query = "SELECT f_name, l_name, picture FROM accounts WHERE UID = '$uid'";
         $userResult = mysqli_query($con, $query);
 
         if (!$userResult) {
@@ -21,6 +21,7 @@ if (!$result) {
             $userData = mysqli_fetch_assoc($userResult);
             if ($userData) {
                 // Add user data to the current row
+                $row['f_name'] = $userData['f_name'] . ' ' . $userData['l_name'];
                 $row['picture'] = base64_encode($userData['picture']);
             }
         }
