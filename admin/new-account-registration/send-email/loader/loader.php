@@ -28,7 +28,7 @@
         xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 console.log("Email sent successfully!");
-                window.location.href = "../../index.php"; // Redirect after sending email
+                window.location.href = "../../../index.php"; // Redirect after sending email
             } else if (this.readyState == 4 && this.status != 200) {
                 console.error("Error sending email!");
                 alert("Error sending email!");
