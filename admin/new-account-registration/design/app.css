@@ -34,19 +34,38 @@ body {
 .container a{
     text-decoration: none;
     color: lightblue;
+    width: 48%;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-container .btn {
+    width: 48%; /* Set the width of each button */
+}
+
+
+.btn.cancel{
+    background: #7a7a7a !important;
+    color: #fff !important;
+    width: 100% !important;
 }
 
 .btn{
     cursor: pointer;
     display: block;
-    width: 100%;
+    /* width: 100%; */
     background: lightblue;
     padding: 15px;
     font-family: inherit;
+    font-weight: bolder;
     font-size: 16px;
     border: 0;
     border-radius: 5px;
-    margin: 0 auto; /* Center horizontally */
+    color: #2a2c31;
+    /* margin: 0 auto; */ /* Center horizontally */
 }
 
 

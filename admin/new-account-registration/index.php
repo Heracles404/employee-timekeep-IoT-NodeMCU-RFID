@@ -17,7 +17,6 @@ $con->close();
     <link rel="stylesheet" href="design/app.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script src="temp-display.js"></script>
 </head>
 
@@ -60,7 +59,13 @@ $con->close();
                 <label for="email">Email</label>
             </div>
 
-            <button type="submit" class="btn">Register</button>
+            <div class="form-control btn-container">
+               <a href="../index.php">
+                 <button type="button" class="btn cancel">Cancel</button>
+               </a>
+                <button type="submit" class="btn">Register</button>
+            </div>
+
 
         </form>
     </div>
