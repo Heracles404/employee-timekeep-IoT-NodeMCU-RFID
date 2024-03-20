@@ -1,0 +1,101 @@
+/* Google font API */
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+/* Body style */
+body {
+    background-color: steelblue;
+    font-family: 'Muli', Arial, sans-serif; /* Use Muli font as default */
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
+    color: #fff;
+    
+}
+
+/* Button container style */
+.button-container {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+/* Button style */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #355c7c;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0a3e6980;
+}
+
+/* Form control style */
+.form-control {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+}
+
+/* Table style */
+.table {
+    width: 84%;
+    text-align: center;
+    margin:auto;
+    border-collapse: collapse;
+    background-color: #fff; /* Set background color to white */
+    margin-bottom: 20px; /* Add mAHAHargin-bottom for spacing */
+}
+
+/* Table header style */
+.table th {
+    background-color: #355c7c; /* Change header background color */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Table cell style */
+.table td {
+    border: 1px solid #ddd;
+    color: #355c7c; /* Set text color to white */
+    padding: 10px;
+}
+
+/* Alternating row background color */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect on table rows */
+.table tbody tr:hover {
+    background-color: #e9ecef; /* Lighter background color on hover */
+}
+
+/* Space under the form */
+form {
+    margin-bottom: 20px; /* Add margin bottom to create space */
+}
+
+.icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 25px;
+}
