@@ -14,7 +14,7 @@
     <div class="container">
         <h1>Information Update</h1>
 
-        <form id="registerForm" action="insertData.php" method="post" enctype="multipart/form-data">
+        <form id="registerForm" action="populate.php" method="get" enctype="multipart/form-data">
 
             <div>
                 <div class="form-control" id="imageBox">

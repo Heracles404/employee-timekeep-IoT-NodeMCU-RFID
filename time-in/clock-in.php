@@ -60,9 +60,8 @@ function clockIn($UID){
         $insert_query = "INSERT INTO `$table_name` (log_date, time_in) VALUES ('$current_date', '$current_time_ph')";
         mysqli_query($con, $insert_query);
     }
-    else {
-        // Send already timed in email
-    }
+
 }
+
 mysqli_close($con);
 ?>
