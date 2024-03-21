@@ -1,11 +1,84 @@
 <?php
-include_once('connects.php');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "nodemcu_rfid_iot";
 
-// Clear 'temporary_data' table
-$query_clear = "UPDATE temporary_data SET RFID_UID = ' ' WHERE idx = 1";
-$con->query($query_clear);
+// Connection
+$con = new mysqli($servername, $username, $password, $dbname);
 
-$con->close();
+if ($con->connect_error) {
+    die("Connection Failed: ". $con->connect_error);
+}
+
+$UID = "";
+$f_name ="";
+$l_name="";
+$email = "";
+
+$errorMessage ="";
+$successMessage ="";
+
+if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+    // GET METHOD
+
+    if ( !isset( $_GET['UID'] ) ) {
+        header('location: /employee-timekeep-IoT-NodeMCU-RFID/admin/');
+        exit;
+    }
+
+    $UID = $_GET["UID"];
+
+    // read row
+    $sql ="SELECT * FROM accounts WHERE UID=$UID";
+    $result = $con->query($sql);
+    $row= $result->fetch_array( );
+
+    if (!$row) {
+        header('location: /employee-timekeep-IoT-NodeMCU-RFID/admin/');
+        exit;
+    }
+
+    $UID = "{$row['UID']}";
+    $f_name ="{$row['f_name']}";
+    $l_name="{$row['l_name']}";
+    $email = "{$row['email']}";
+
+}
+else {
+    // POST METHOD
+
+    $UID = "{$_POST['UID']}";
+    $f_name ="{$_POST['f_name']}";
+    $l_name="{$_POST['l_name']}";
+    $email = "{$_POST['email']}";
+
+    do {
+        if (empty ($UID) || empty ($f_name) || empty ($l_name) || empty ($email)) {
+            $errorMessage = "All the fields are required";
+            break;
+        }
+
+        $sql = "UPDATE accounts " . 
+               //"SET UID='$UID', 
+               "f_name='$f_name', l_name='$l_name', email='$email' " . 
+               "WHERE UID = $UID";
+
+        $result = $con->query($sql);
+
+        if (!$result) {
+            $errorMessage = "Invalid query" . $con->error;
+            break;
+        }
+
+        $successMessage = "Client updated correctly";
+        header('location: /employee-timekeep-IoT-NodeMCU-RFID/admin/');
+        exit;
+
+
+    } while (false); 
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,17 +88,16 @@ $con->close();
     <title>Update</title>
     <!--style-->
     <link rel="stylesheet" href="design/app.css">
-
+    <script src="scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="temp-display.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1>Update</h1>
+        <h1>Information Update</h1>
 
-        <form id="registerForm" action="insertData.php" method="post" enctype="multipart/form-data">
+        <form id="registerForm" action="populate.php" method="get" enctype="multipart/form-data">
 
             <div>
                 <div class="form-control" id="imageBox">
@@ -33,34 +105,34 @@ $con->close();
                 </div>
 
                 <div>
-                    <input type="file" id="uploadInput" name="image" accept="image/*" onchange="uploadImage()">
+                    <input type="file" id="uploadInput" name="image" accept="image/*" value="<?php echo $picture;?>" onchange="uploadImage()">
                     <label for="uploadInput" class="custom-file-input">Choose File</label>
                 </div>
                 <br>
             </div>
 
             <div class="form-control">
-                <input type="text" id="UID" name="UID" required>
+                <input type="text" id="UID" name="UID" value="<?php echo $UID;?>" required>
                 <label for="UID">UID:</label>
             </div>
 
 
             <div class="form-control">
-                <input type="text" id="firstname" name="firstname" required>
+                <input type="text" id="firstname" name="firstname" value="<?php echo $f_name;?>" required>
                 <label for="firstname">First Name</label>
             </div>
 
             <div class="form-control">
-                <input type="text" id="lastname" name="lastname" required>
+                <input type="text" id="lastname" name="lastname" value="<?php echo $l_name;?>" required>
                 <label for="lastname">Last Name</label>
             </div>
 
             <div class="form-control">
-                <input type="e-mail" id="email" name="email" required>
+                <input type="e-mail" id="email" name="email" value="<?php echo $email;?>" required>
                 <label for="email">Email</label>
             </div>
 
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn">Update</button>
 
         </form>
     </div>

@@ -11,10 +11,10 @@ if (isset($_GET['search'])) {
     $sql = "SELECT * FROM accounts";
 }
 
-$result = $conn->query($sql);
+$result = $con->query($sql);
 
 if (!$result) {
-    die("Invalid query". $conn->error);
+    die("Invalid query". $con->error);
 }
 
 // Read data
@@ -24,16 +24,18 @@ while ($row = $result->fetch_assoc()) {
             <td>{$row['f_name']}</td>
             <td>{$row['l_name']}</td>   
             <td>{$row['email']}</td>
-            <td>{$row['created_at']}</td>
             <td>
-            <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/update-account/?id={$row['UID']}'>
-            <button>Update</button>
-            </a>
-            <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/delete-account/delete-account.php?id={$row['UID']}'>
-            <button>Delete</button>
-            </a>
-        
+                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/export-timesheet.php?id={$row['UID']}'>
+                    <img src='design/export.png' class='icon'/>
+                </a>
+
+                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/update-account/index.php?UID=({$row['UID']})'>
+                    <img src='design/update.png' class='icon'/>
+                </a>
+
+                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/delete-account/delete-account.php?id={$row['UID']}'>
+                    <img src='design/trash.png' class='icon'/>
+                </a>
             </td>
           </tr>";
 }
-?>

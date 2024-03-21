@@ -1,0 +1,70 @@
+/*google font API*/
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-color: steelblue;
+    color: #fff;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 40px;
+    border-radius: 5px;
+    width: 25%;
+    min-width: min-content;
+}
+
+.container h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form{
+    margin-bottom: 40px;
+}
+
+.container a{
+    text-decoration: none;
+    color: lightblue;
+}
+
+
+#imageBox {
+    width: 280px;
+    height: 280px;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Use 50% to create a circle */
+    margin: auto; /* Center the image box horizontally */
+    overflow: hidden; /* Ensure the image is clipped to the rounded border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#uploadedImage {
+    max-width: 300px;
+}
+
+.form-control input{
+    background-color: transparent;
+    border: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 2px #fff solid;
+    padding: 15px 0;
+    font-size: 25px;
+    color: #fff;
+}

@@ -6,9 +6,9 @@ $password = "";
 $dbname = "nodemcu_rfid_iot";
 
 // Connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$con = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection Failed: ". $conn->connect_error);
+if ($con->connect_error) {
+    die("Connection Failed: ". $con->connect_error);
 }
 ?>
