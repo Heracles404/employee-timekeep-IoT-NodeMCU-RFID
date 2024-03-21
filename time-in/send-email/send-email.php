@@ -41,7 +41,7 @@ if(isset($_GET['UID'])){
             $mail->setFrom($email, "Apostle Logistix");
             $mail->addAddress($email, "$firstname $lastname");
 
-            $mail->Subject = "Welcome to Apostle Logistix";
+            $mail->Subject = "Apostle Logistix: Time In Notification";
             $mail->Body = "
                 Dear $firstname $lastname,
 

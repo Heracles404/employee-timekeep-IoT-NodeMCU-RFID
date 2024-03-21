@@ -41,13 +41,13 @@ if(isset($_GET['UID'])){
             $mail->setFrom($email, "Apostle Logistix");
             $mail->addAddress($email, "$firstname $lastname");
 
-            $mail->Subject = "Welcome to Apostle Logistix";
+            $mail->Subject = "Apostle Logistix: Time Out Notification";
             $mail->Body = "
                 Dear $firstname $lastname,
 
                 UID: $UID
 
-                You have successfully timed in on today, $c_date, at exactly $c_time.
+                You have successfully timed out today, $c_date, at exactly $c_time.
 
                 Have a good day!
                 ";

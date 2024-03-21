@@ -103,6 +103,7 @@ void timeOut(String tag) {
     if (httpCode > 0) {
       String response = http.getString();
       Serial.println(response);
+      sendEmail(tag);
     } else {
       Serial.println("HTTP Error: " + http.errorToString(httpCode));
     }
@@ -113,6 +114,29 @@ void timeOut(String tag) {
 
   return;
 }
+
+
+void sendEmail(String tag) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    WiFiClient wifi;
+    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-out/send-email/send-email.php??ipsrc=1&UID=" + tag); 
+    http.addHeader("Content-Type", "text/plain");
+    int httpCode = http.GET();
+    if (httpCode > 0) {
+      String response = http.getString();
+      Serial.println(response);
+    } else {
+      Serial.println("HTTP Error: " + http.errorToString(httpCode));
+    }
+    http.end();
+  } else {
+    Serial.println("Error in WiFi connection");
+  }
+
+  return;
+}
+
 
 void tapped(){
   digitalWrite (buzzer, HIGH);
