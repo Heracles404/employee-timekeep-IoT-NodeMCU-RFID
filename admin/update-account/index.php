@@ -59,9 +59,9 @@ else {
             break;
         }
 
-        $sql = "UPDATE accounts " . 
-               //"SET UID='$UID', 
-               "f_name='$f_name', l_name='$l_name', email='$email' " . 
+        $sql = "UPDATE accounts " .
+               //"SET UID='$UID',
+               "f_name='$f_name', l_name='$l_name', email='$email' " .
                "WHERE UID = $UID";
 
         $result = $con->query($sql);
@@ -76,7 +76,7 @@ else {
         exit;
 
 
-    } while (false); 
+    } while (false);
 
 }
 ?>
@@ -97,7 +97,7 @@ else {
     <div class="container">
         <h1>Information Update</h1>
 
-        <form id="registerForm" action="populate.php" method="get" enctype="multipart/form-data">
+        <form id="registerForm" action="populate.php" method="post" enctype="multipart/form-data">
 
             <div>
                 <div class="form-control" id="imageBox">
@@ -132,8 +132,12 @@ else {
                 <label for="email">Email</label>
             </div>
 
-            <button type="submit" class="btn">Update</button>
-
+            <div class="form-control btn-container">
+               <a href="../index.php">
+                 <button type="button" class="btn cancel">Cancel</button>
+               </a>
+                <button type="submit" class="btn">Update</button>
+            </div>
         </form>
     </div>
     <br>
