@@ -15,6 +15,7 @@ $UID = "";
 $f_name ="";
 $l_name="";
 $email = "";
+$picture = ""; // Initialize the $picture variable
 
 $errorMessage ="";
 $successMessage ="";
@@ -43,6 +44,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
     $f_name ="{$row['f_name']}";
     $l_name="{$row['l_name']}";
     $email = "{$row['email']}";
+    $picture = base64_encode($row['picture']); // Convert BLOB to base64
 
 }
 else {
@@ -60,8 +62,7 @@ else {
         }
 
         $sql = "UPDATE accounts " .
-               //"SET UID='$UID',
-               "f_name='$f_name', l_name='$l_name', email='$email' " .
+               "SET f_name='$f_name', l_name='$l_name', email='$email' " .
                "WHERE UID = $UID";
 
         $result = $con->query($sql);
@@ -74,7 +75,6 @@ else {
         $successMessage = "Client updated correctly";
         header('location: /employee-timekeep-IoT-NodeMCU-RFID/admin/');
         exit;
-
 
     } while (false);
 
@@ -101,11 +101,11 @@ else {
 
             <div>
                 <div class="form-control" id="imageBox">
-                    <img id="uploadedImage" src="design/img.jpg">
+                    <img id="uploadedImage" src="data:image/jpeg;base64,<?php echo $picture; ?>">
                 </div>
 
                 <div>
-                    <input type="file" id="uploadInput" name="image" accept="image/*" value="<?php echo $picture;?>" onchange="uploadImage()">
+                    <input type="file" id="uploadInput" name="image" accept="image/*" onchange="uploadImage()">
                     <label for="uploadInput" class="custom-file-input">Choose File</label>
                 </div>
                 <br>
