@@ -117,7 +117,7 @@ void sendEmail(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-in/send-email/fetch-data.php??ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-in/send-email/send-email.php??ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
