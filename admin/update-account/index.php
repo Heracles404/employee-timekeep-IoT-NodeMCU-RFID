@@ -112,10 +112,11 @@ else {
             </div>
 
             <div class="form-control">
-                <input type="text" id="UID" name="UID" value="<?php echo $UID;?>" required>
-                <label for="UID">UID:</label>
+                <div class="uid-label" for="UID">UID:</label>
+                <input type="text" id="UID" name="UID" value="<?php echo $UID;?>" readonly required>
             </div>
 
+            <br/>
 
             <div class="form-control">
                 <input type="text" id="firstname" name="firstname" value="<?php echo $f_name;?>" required>
