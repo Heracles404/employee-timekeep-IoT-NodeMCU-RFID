@@ -4,7 +4,7 @@
 
 const char* ssid = "IoT";
 const char* password = "AccessPoint.2024";
-const char* host = "192.168.68.102";
+const char* host = "192.168.68.107";
 
 // RFID Components
 #include <SPI.h>
@@ -74,7 +74,7 @@ void temporarySave(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/time-in/temp-data.php?ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-in/temp-data.php?ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
@@ -95,7 +95,29 @@ void timeIn(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.102/employee-timekeep-IoT-NodeMCU-RFID/time-in/clock-in.php?ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-in/clock-in.php?ipsrc=1&UID=" + tag); 
+    http.addHeader("Content-Type", "text/plain");
+    int httpCode = http.GET();
+    if (httpCode > 0) {
+      String response = http.getString();
+      Serial.println(response);
+      sendEmail(tag);
+    } else {
+      Serial.println("HTTP Error: " + http.errorToString(httpCode));
+    }
+    http.end();
+  } else {
+    Serial.println("Error in WiFi connection");
+  }
+
+  return;
+}
+
+void sendEmail(String tag) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    WiFiClient wifi;
+    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-in/send-email/fetch-data.php??ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
