@@ -29,7 +29,7 @@ while ($row = $result->fetch_assoc()) {
                     <img src='design/export.png' class='icon'/>
                 </a>
 
-                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/update-account/' onclick='populateForm({$row['UID']})'>
+                <a href='/employee-timekeep-IoT-NodeMCU-RFID/admin/update-account/index.php?UID=({$row['UID']})'>
                     <img src='design/update.png' class='icon'/>
                 </a>
 
