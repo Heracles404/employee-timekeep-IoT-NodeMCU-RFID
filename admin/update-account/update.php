@@ -11,10 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // File upload
     $image = $_FILES['image']['tmp_name'];
+    $updateImage = "";
     if ($image != "") {
         $imgContent = addslashes(file_get_contents($image)); // Store image content
-    } else {
-        $imgContent = "";
+        // Update the image only if a new image is uploaded
+        $updateImage = ", picture = '$imgContent'";
     }
 
     // Clear 'temporary_data' table
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.location.href = 'index.php';</script>";
     } else {
         // Insert data into database
-        $sql = "UPDATE accounts SET f_name = '$firstname', l_name = '$lastname', email = '$email', picture = '$imgContent' WHERE UID = '$UID'";
+        $sql = "UPDATE accounts SET f_name = '$firstname', l_name = '$lastname', email = '$email' $updateImage WHERE UID = '$UID'";
 
         if ($con->query($sql) === TRUE) {
             // Alert message
@@ -49,3 +50,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $con->close();
 }
 ?>
+x

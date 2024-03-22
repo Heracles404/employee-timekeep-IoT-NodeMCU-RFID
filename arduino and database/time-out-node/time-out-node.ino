@@ -2,9 +2,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "IoT";
-const char* password = "AccessPoint.2024";
-const char* host = "192.168.68.107";
+const char* ssid = "wantwo";
+const char* password = "wantwothree";
+const char* host = "192.168.43.196";
 
 // RFID Components
 #include <SPI.h>
@@ -74,7 +74,7 @@ void temporarySave(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-out/temp-data.php?ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.43.196/employee-timekeep-IoT-NodeMCU-RFID/time-out/temp-data.php?ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
@@ -97,7 +97,7 @@ void timeOut(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-out/clock-out.php?ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.43.196/employee-timekeep-IoT-NodeMCU-RFID/time-out/clock-out.php?ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
@@ -120,7 +120,7 @@ void sendEmail(String tag) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     WiFiClient wifi;
-    http.begin(wifi, "http://192.168.68.107/employee-timekeep-IoT-NodeMCU-RFID/time-out/send-email/send-email.php??ipsrc=1&UID=" + tag); 
+    http.begin(wifi, "http://192.168.43.196/employee-timekeep-IoT-NodeMCU-RFID/time-out/send-email/send-email.php??ipsrc=1&UID=" + tag); 
     http.addHeader("Content-Type", "text/plain");
     int httpCode = http.GET();
     if (httpCode > 0) {
